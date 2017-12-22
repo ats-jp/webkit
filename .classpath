@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<classpath>
+	<classpathentry excluding="**/.svn/" kind="src" path="src"/>
+	<classpathentry excluding="**/.svn/" kind="src" path="sample"/>
+	<classpathentry combineaccessrules="false" kind="src" path="/substrate"/>
+	<classpathentry combineaccessrules="false" kind="src" path="/liverwort"/>
+	<classpathentry kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER"/>
+	<classpathentry kind="lib" path="webapp/WEB-INF/lib/commons-fileupload.jar" sourcepath="commons-fileupload-sources.jar"/>
+	<classpathentry kind="lib" path="webapp/WEB-INF/lib/commons-logging.jar" sourcepath="commons-logging-sources.jar"/>
+	<classpathentry kind="lib" path="webapp/WEB-INF/lib/activation.jar"/>
+	<classpathentry kind="lib" path="webapp/WEB-INF/lib/mail.jar"/>
+	<classpathentry kind="lib" path="webapp/WEB-INF/lib/commons-io.jar" sourcepath="commons-io-sources.jar"/>
+	<classpathentry kind="lib" path="dependencies/jsp-api.jar"/>
+	<classpathentry kind="lib" path="dependencies/servlet-api.jar"/>
+	<classpathentry kind="lib" path="dependencies/jasper.jar"/>
+	<classpathentry kind="lib" path="dependencies/el-api.jar"/>
+	<classpathentry kind="lib" path="dependencies/annotations-api.jar"/>
+	<classpathentry kind="lib" path="dependencies/catalina.jar"/>
+	<classpathentry kind="lib" path="webapp/WEB-INF/lib/dexter.jar"/>
+	<classpathentry kind="output" path="webapp/WEB-INF/classes"/>
+</classpath>

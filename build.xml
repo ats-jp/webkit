@@ -1,0 +1,118 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<project name="webkit" default="all">
+
+	<property name="lib" value="webapp/WEB-INF/lib" />
+
+	<path id="project.classpath">
+		<pathelement location="dependencies/servlet-api.jar" />
+		<pathelement location="dependencies/jsp-api.jar" />
+		<pathelement location="dependencies/catalina.jar" />
+		<pathelement location="${lib}/substrate.jar" />
+		<pathelement location="${lib}/liverwort.jar" />
+		<pathelement location="${lib}/commons-fileupload.jar" />
+		<pathelement location="${lib}/commons-beanutils.jar" />
+		<pathelement location="${lib}/activation.jar" />
+		<pathelement location="${lib}/mail.jar" />
+	</path>
+
+	<target name="all" depends="cleanup, import, compile">
+		<copy todir="build">
+			<fileset dir="src" includes="**/*.java" />
+			<fileset dir="src" includes="**/*.xml" />
+			<fileset dir="src" includes="**/*.txt" />
+		</copy>
+		<jar basedir="build" jarfile="webkit.jar" />
+	</target>
+
+	<!--
+	substrate.jar と liverwort.jar を生成し、使用可能なようにインポートします。
+	-->
+	<target name="import">
+		<ant dir="../liverwort" />
+		<copy file="../liverwort/substrate.jar" todir="${lib}" />
+		<copy file="../liverwort/liverwort.jar" todir="${lib}" />
+		<ant dir="../dexter" />
+		<copy file="../dexter/dexter.jar" todir="${lib}" />
+		<copy file="../dexter/jquery.dexter.js" todir="webapp/js" />
+	</target>
+
+	<target name="nodeps-jar" depends="cleanup">
+		<ant dir="../liverwort" target="nodeps-jar" />
+		<copy todir="build">
+			<fileset dir="../liverwort/build" />
+		</copy>
+		<antcall target="compile" />
+		<copy todir="build">
+			<fileset dir="src" includes="**/*.java" />
+			<fileset dir="src" includes="**/*.xml" />
+			<fileset dir="src" includes="**/*.txt" />
+		</copy>
+		<jar basedir="build" jarfile="webkit-nodeps.jar" />
+	</target>
+
+	<target name="class-jar" depends="cleanup, import, compile">
+		<copy todir="build">
+			<fileset dir="src" includes="**/*.xml" />
+			<fileset dir="src" includes="**/*.txt" />
+		</copy>
+		<jar basedir="build" jarfile="webkit.jar" />
+	</target>
+
+	<target name="src-jar" depends="cleanup">
+		<jar basedir="src" jarfile="webkit-src.jar" />
+	</target>
+
+	<target name="war" depends="all">
+		<copy file="webkit.jar" todir="${lib}" />
+		<war warfile="webkit.war" webxml="webapp/WEB-INF/web.xml" basedir="webapp" />
+	</target>
+
+	<target name="javadoc" depends="cleanup, import">
+		<ant dir="../liverwort" target="javadoc" />
+		<mkdir dir="substrate-api" />
+		<copy todir="substrate-api">
+			<fileset dir="../liverwort/substrate-api" />
+		</copy>
+		<mkdir dir="liverwort-api" />
+		<copy todir="liverwort-api">
+			<fileset dir="../liverwort/liverwort-api" />
+		</copy>
+
+		<mkdir dir="webkit-api" />
+
+		<javadoc packagenames="jp.ats.webkit.*" sourcepath="src" destdir="webkit-api" windowtitle="Webkit API" doctitle="Webkit API">
+			<classpath refid="project.classpath" />
+			<link offline="true" href="http://java.sun.com/j2se/1.5.0/ja/docs/ja/api/" packagelistLoc="." />
+			<link href="../substrate-api" packagelistLoc="." />
+			<link href="../liverwort-api" packagelistLoc="." />
+		</javadoc>
+		<zip zipfile="webkit-api.zip" basedir="webkit-api" />
+	</target>
+
+	<target name="cleanup">
+		<delete dir="build" />
+		<delete dir="webkit-api" />
+		<delete dir="substrate-api" />
+		<delete dir="liverwort-api" />
+		<delete file="${lib}/substrate.jar" />
+		<delete file="${lib}/liverwort.jar" />
+		<delete file="${lib}/dexter.jar" />
+		<delete file="webkit.jar" />
+		<delete file="${lib}/webkit.jar" />
+		<delete file="webkit-nodeps.jar" />
+		<delete file="webkit-src.jar" />
+		<delete file="webkit-api.zip" />
+		<delete file="webkit.war" />
+		<delete file="webapp/js/jquery.dexter.js" />
+	</target>
+
+	<target name="compile">
+		<mkdir dir="build" />
+		<javac srcdir="src" destdir="build" debug="true" optimize="true" deprecation="true" encoding="UTF-8" includeantruntime="false">
+			<classpath refid="project.classpath" />
+			<include name="**/*.java" />
+		</javac>
+		<copy file="src/webkit-version.txt" todir="build" />
+	</target>
+</project>

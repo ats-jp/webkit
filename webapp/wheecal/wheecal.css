@@ -1,0 +1,120 @@
+@charset "utf-8";
+
+.wheecalItem {
+	float: left;
+	height: 18px;
+	font-family: 'ヒラギノ角ゴ Pro W3', 'Hiragino Kaku Gothic Pro', メイリオ, Meiryo, 'ＭＳ Ｐゴシック', 'MS P Gothic', sans-serif;
+	padding: 0;
+	margin: 0 1px 0 1px;
+}
+
+#wheecalCloseup {
+	position: absolute;
+	width: 100px;
+	height: 50px;
+	border: 1px solid #999;
+	border-radius: 4px;
+	-moz-border-radius: 4px;
+	-webkit-border-radius: 4px;
+	background-color: #fff;
+	z-index: 99;
+}
+
+#wheecalCloseupNumber {
+	position: absolute;
+	white-space: nowrap;
+	text-align: center;
+	width: 100%;
+	top: 0;
+	font-size: 30px;
+	height: 35px;
+	font-weight: bold;
+	color: #000;
+}
+
+#wheecalCloseupDescription {
+	position: absolute;
+	white-space: nowrap;
+	text-align: center;
+	width: 100%;
+	height: 15px;
+	padding-top: 2px;
+	bottom: 0;
+	font-size: 12px;
+	color: #999;
+}
+
+.wheecalUnit {
+	height: 40px;
+	width: 215px;
+}
+
+input[type="text"].wheecalElement {
+	display: inline;
+	height: 16px;
+	line-height: 16px;
+	font-size: 12px;
+	border: 1px solid #999;
+	text-align: right;
+	ime-mode: disabled;
+}
+
+.wheecalDelimiter {
+	border: 0;
+	font-size: 12px;
+	line-height: 18px;
+	text-align: center;
+}
+
+.wheecalWeekday {
+	border: 0;
+	width: 18px;
+	text-align: center;
+	font-size: 12px;
+	line-height: 18px;
+}
+
+.wheecalElement:hover {
+	border:1px solid #000;
+	background-color:#555;
+	color: #fff;
+}
+
+.wheecalYear {
+	width: 40px;
+}
+
+.wheecalMonth {
+	width: 25px;
+}
+
+.wheecalDate {
+	width: 25px;
+}
+
+.wheecalReset, .wheecalToday {
+	font-family: sans-serif;
+	border: 1px solid #999;
+	font-size: 12px;
+	width: 35px;
+}
+
+.wheecalHolidayName {
+	clear: both;
+	width: 115px;
+	line-height: 12px;
+	height: 14px;
+	font-size: 12px;
+	text-align: center;
+	padding-top: 2px;
+}
+
+.wheecalHoliday {
+	color: red;
+	background-color: #f9dede;
+}
+
+.wheecalSaturday {
+	color: blue;
+	background-color: #d0e0f3;
+}

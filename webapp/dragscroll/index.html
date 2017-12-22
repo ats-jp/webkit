@@ -1,0 +1,42 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional-dtd">
+
+<html>
+<head>
+<meta http-equiv="content-type" content="text/html;charset=UTF-8" />
+<script src="../js/jquery.js"></script>
+<script type="text/javascript">
+jQuery.noConflict();
+</script>
+<script src="../js/jquery.dragscroll.js"></script>
+<script>
+var div1DragScroll;
+var div2DragScroll;
+jQuery(document).ready(function() {
+	div1DragScroll = jQuery('#div1').dragScroll().start();
+	div2DragScroll = jQuery('#div2').dragScroll(100).start();
+});
+</script>
+</head>
+<body>
+decrease: default
+<br />
+<button onclick="div1DragScroll.toggle();">toggle</button>
+<button onclick="div1DragScroll.suspend();">suspend</button>
+<button onclick="div1DragScroll.resume();">resume</button>
+<div id="div1" style="height:300px; width:300px; overflow:scroll;">
+<img src="body.png" />
+</div>
+
+<br />
+<br />
+
+decrease: 100
+<br />
+<button onclick="div2DragScroll.toggle();">toggle</button>
+<button onclick="div2DragScroll.suspend();">suspend</button>
+<button onclick="div2DragScroll.resume();">resume</button>
+<div id="div2" style="height:300px; width:300px; overflow:scroll;">
+<img src="body.png" />
+</div>
+</body>
+</html>

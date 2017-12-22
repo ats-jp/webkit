@@ -1,0 +1,139 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE web-app PUBLIC "-//Sun Microsystems, Inc.//DTD Web Application 2.3//EN" "http://java.sun.com/dtd/web-app_2_3.dtd">
+
+<web-app>
+	<servlet>
+		<servlet-name>dexterDispatcher</servlet-name>
+		<servlet-class>jp.ats.dexter.DispatcherServlet</servlet-class>
+		<init-param>
+			<param-name>formid-prefix</param-name>
+			<param-value>sample</param-value>
+		</init-param>
+		<load-on-startup>2</load-on-startup>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>dexterDispatcher</servlet-name>
+		<url-pattern>*.dx</url-pattern>
+	</servlet-mapping>
+
+	<servlet>
+		<servlet-name>dexterAsyncValidator</servlet-name>
+		<servlet-class>jp.ats.dexter.AsyncValidatorServlet</servlet-class>
+		<init-param>
+			<param-name>formid-prefix</param-name>
+			<param-value>sample</param-value>
+		</init-param>
+		<load-on-startup>2</load-on-startup>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>dexterAsyncValidator</servlet-name>
+		<url-pattern>/dexter</url-pattern>
+	</servlet-mapping>
+
+	<servlet>
+		<servlet-name>infinicalMemberServlet</servlet-name>
+		<servlet-class>jp.ats.webkit.infinical.InfinicalServlet</servlet-class>
+		<init-param>
+			<param-name>factory-class</param-name>
+			<param-value>sample.SampleMemberInfinicalBuilderFactory</param-value>
+		</init-param>
+		<load-on-startup>2</load-on-startup>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>infinicalMemberServlet</servlet-name>
+		<url-pattern>/infinicalmember/infinicalInit</url-pattern>
+	</servlet-mapping>
+	<servlet-mapping>
+		<servlet-name>infinicalMemberServlet</servlet-name>
+		<url-pattern>/infinicalmember/infinical</url-pattern>
+	</servlet-mapping>
+
+	<servlet>
+		<servlet-name>infinicalMoveServlet</servlet-name>
+		<servlet-class>jp.ats.webkit.infinical.MoveServlet</servlet-class>
+		<init-param>
+			<param-name>factory-class</param-name>
+			<param-value>sample.SampleMemberInfinicalBuilderFactory</param-value>
+		</init-param>
+		<load-on-startup>2</load-on-startup>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>infinicalMoveServlet</servlet-name>
+		<url-pattern>/infinicalmember/infinicalMove</url-pattern>
+	</servlet-mapping>
+
+	<servlet>
+		<servlet-name>infinicalTimeServlet</servlet-name>
+		<servlet-class>jp.ats.webkit.infinical.InfinicalServlet</servlet-class>
+		<init-param>
+			<param-name>factory-class</param-name>
+			<param-value>sample.SampleTimeInfinicalBuilderFactory</param-value>
+		</init-param>
+		<load-on-startup>2</load-on-startup>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>infinicalTimeServlet</servlet-name>
+		<url-pattern>/infinicaltime/infinicalInit</url-pattern>
+	</servlet-mapping>
+	<servlet-mapping>
+		<servlet-name>infinicalTimeServlet</servlet-name>
+		<url-pattern>/infinicaltime/infinical</url-pattern>
+	</servlet-mapping>
+
+	<servlet>
+		<servlet-name>holidayServlet</servlet-name>
+		<servlet-class>jp.ats.webkit.util.HolidayServlet</servlet-class>
+		<load-on-startup>2</load-on-startup>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>holidayServlet</servlet-name>
+		<url-pattern>/holiday</url-pattern>
+	</servlet-mapping>
+
+	<filter>
+		<filter-name>parameterEncodingFilter</filter-name>
+		<filter-class>jp.ats.webkit.util.ParameterEncodingFilter</filter-class>
+		<init-param>
+			<param-name>encoding</param-name>
+			<param-value>UTF-8</param-value>
+		</init-param>
+	</filter>
+	<filter-mapping>
+		<filter-name>parameterEncodingFilter</filter-name>
+		<url-pattern>*.jsp</url-pattern>
+		<url-pattern>*.dx</url-pattern>
+		<url-pattern>*.act</url-pattern>
+		<url-pattern>*.html</url-pattern>
+	</filter-mapping>
+
+	<filter>
+		<filter-name>dexterManager</filter-name>
+		<filter-class>jp.ats.dexter.DexterManager</filter-class>
+	</filter>
+	<filter-mapping>
+		<filter-name>dexterManager</filter-name>
+		<url-pattern>*.dx</url-pattern>
+	</filter-mapping>
+
+	<filter>
+		<filter-name>actionFilter</filter-name>
+		<filter-class>jp.ats.webkit.action.Controller</filter-class>
+		<init-param>
+			<param-name>package-prefix</param-name>
+			<param-value>sample</param-value>
+		</init-param>
+		<init-param>
+			<param-name>referer-redirect</param-name>
+			<param-value>false</param-value>
+		</init-param>
+	</filter>
+	<filter-mapping>
+		<filter-name>actionFilter</filter-name>
+		<url-pattern>*.act</url-pattern>
+	</filter-mapping>
+
+	<welcome-file-list>
+		<welcome-file>index.html</welcome-file>
+		<welcome-file>index.jsp</welcome-file>
+	</welcome-file-list>
+</web-app>

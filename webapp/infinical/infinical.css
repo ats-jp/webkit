@@ -1,0 +1,213 @@
+@charset "utf-8";
+
+#infinicalFrame *, #floatingMember * {
+	font-family: "ヒラギノ角ゴ Pro W3", "Hiragino Kaku Gothic Pro", "メイリオ", "Meiryo", "ＭＳ Ｐゴシック", "MS P Gothic", sans-serif;
+}
+
+table {
+	empty-cells: show;
+	border-collapse: collapse;
+	border-spacing: 0;
+	background: #fff;
+}
+
+table.infinical {
+	border-top: 1px solid #999;
+	border-left: 1px solid #999;
+}
+
+html:not([lang*=""]) table.infinical {	/* Firefox用ハック */
+	border-collapse: separate;
+}
+
+table.infinical th, table.infinical td {
+	padding: 5px;
+	border-bottom: 1px solid #999;
+	border-right: 1px solid #999;
+	vertical-align: top;
+}
+
+table.infinical th.sunday {
+	background: #f9dede;
+}
+
+table.infinical th.saturday {
+	background: #d0e0f3;
+}
+
+table.infinical th.holiday {
+	background: #f9dede;
+}
+
+table.infinical th.weekday {
+	background: #e1e1e1;
+}
+
+table.infinical th.member {
+	background: #e1e1e1;
+}
+
+#floatingMember {
+	z-index: 9999;
+}
+
+#floatingMember div.divMember {
+	background: #e1e1e1;
+	padding: 5px;
+	border: 1px solid #999;
+	vertical-align: top;
+	zoom: 1.0; /*IE*/
+	filter: alpha(opacity=60); /*IE*/
+	opacity: 0.60;
+	font-weight: bold;
+	text-align: center;
+}
+
+table.infinical th.infinicalMouseDownMember {
+	color: #fff;
+	background: #999;
+}
+
+#destGuide {
+	background: #f00;
+	height: 2px;
+	z-index: 1;
+}
+
+.destGuideOpacity {
+	zoom: 1.0; /*IE*/
+	filter: alpha(opacity=30); /*IE*/
+	opacity: 0.30;
+}
+
+#floatingMember div.divMember .description {
+	font-weight: normal;
+	font-size: 80%;
+}
+
+table.infinical td.sunday {
+	background: #fdf1f1;
+}
+
+table.infinical td.saturday {
+	background: #ebf2fa;
+}
+
+table.infinical td.holiday {
+	background: #fdf1f1;
+}
+
+table.infinical td.weekday {
+	background: #fff;
+}
+
+table.infinical span.sunday {
+	color: #f00;
+}
+
+table.infinical span.saturday {
+	color: #0953a9;
+}
+
+table.infinical span.holiday {
+	color: #f00;
+}
+
+table.infinical span.weekday {
+	color: #000;
+}
+
+table.infinical span.description {
+	font-weight: normal;
+	font-size: 80%;
+}
+
+table.scrotableXY td.filler {
+	background-color: #999;
+}
+
+table.scrotableXY div.filler {
+	margin: 1px;
+	background-color: #bbb;
+}
+
+#infinicalFrame {
+	width: 800px;
+	margin: 0;
+	padding: 5px;
+	background: #eee;
+	border: 1px solid #bbb;
+	border-radius: 4px;
+	-moz-border-radius: 4px;
+	-webkit-border-radius: 4px;
+}
+
+.infinicalArea {
+	position: relative;
+	width: 800px;
+	padding: 0;
+	margin: 0;
+	height: 30px;
+}
+
+#infinicalYearArea {
+	position: absolute;
+	display: inline;
+	left: 20px;
+	bottom: 5px;
+	font-weight: bold;
+	font-size: 120%;
+}
+
+#infinicalDateArea {
+	width: 100px;
+}
+
+#infinicalNavigatorBar {
+	position: absolute;
+	display: inline;
+	right: 0;
+	bottom: 0;
+}
+
+#infinicalTimestampArea {
+	font-size: 90%;
+	position: absolute;
+	right: 0;
+	top: 0;
+	cursor: pointer;
+	margin: 5px 0 0 0;
+}
+
+.infinicalArea a:link, .infinicalArea a:visited {
+	color: #999;
+	text-decoration: none;
+}
+
+.infinicalArea a:hover, .infinicalArea a:active {
+	color: #f33;
+	text-decoration: underline;
+}
+
+.infinicalHeaderItem {
+	margin: 0 0 3px 3px;
+	vertical-align: middle;
+}
+
+.infinicalFooterItem {
+	margin: 3px 0 0 0;
+}
+
+.scrotableXY {
+	border-right: 1px solid #999;
+	border-bottom: 1px solid #999;
+}
+
+.date_header {
+	width: 150px;
+	height: 35px;
+}
+
+.dragging * {
+	cursor: default;
+}

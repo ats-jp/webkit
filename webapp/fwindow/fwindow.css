@@ -1,0 +1,89 @@
+@charset "utf-8";
+
+#floatingWindowOutfield {
+	display: none;
+	position: fixed;
+	z-index: 10000;
+	top: 0;
+	left: 0;
+	right: 0;
+	bottom: 0;
+	zoom: 1.0; /*IE*/
+	filter: alpha(opacity=40); /*IE*/
+	opacity: 0.40;
+	background-color: black;
+}
+
+#floatingWindow {
+	display: none;
+	position: fixed;
+	z-index: 10001;
+	border: 1px solid #bbb;
+	border-radius: 4px;
+	-moz-border-radius: 4px;
+	-webkit-border-radius: 4px;
+	background-color: #eee;
+}
+
+#floatingWindowHeader {
+	position: absolute;
+	top: 0;
+	width: 100%;
+	height: 35px;
+	cursor: move;
+}
+
+#floatingWindowFooter {
+	position: absolute;
+	bottom: 0;
+	width: 100%;
+	height: 35px;
+}
+
+#floatingWindowCorner {
+	position: absolute;
+	bottom: 0;
+	right: 0;
+	cursor: se-resize;
+}
+
+#floatingWindowBody {
+	position: absolute;
+	z-index: 3;
+	top: 35px;
+	left: 10px;
+	border: 1px solid #bbb;
+}
+
+#floatingWindowTitle {
+	margin: 0;
+	padding: 0;
+	font-size: 120%;
+	font-weight: bold;
+	position: absolute;
+	top: 7px;
+	left: 10px;
+	background-color: #eee;
+	white-space: nowrap;
+}
+
+#floatingWindowAction {
+	position: absolute;
+	top: 7px;
+	right: 5px;
+	cursor: pointer;
+}
+
+#floatingWindowAction a:link, #floatingWindowAction a:visited {
+	color: #999;
+	text-decoration: none;
+}
+
+#floatingWindowAction a:hover, #floatingWindowAction a:active {
+	color: #f33;
+    text-decoration: underline;
+}
+
+.floatingWindowDragging * {
+	cursor: default;
+}

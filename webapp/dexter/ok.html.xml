@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<dexter-form-config fixed="true">
+<element id="length_check" required="true" draw-on-element-id="length_check_message_id" pattern="false">
+<name>文字数検査サンプル</name>
+<description>文字数検査サンプル欄です</description>
+<validators>
+<validator class="jp.ats.webkit.dexter.validator.LengthRangeValidator">
+<param property="maximum" value="5" />
+<param property="minimum" value="2" />
+</validator>
+</validators>
+</element>
+
+<element id="size_check" pattern="false">
+<name>バイト数検査サンプル</name>
+<description>バイト数検査サンプル欄です</description>
+<validators>
+<validator class="jp.ats.webkit.dexter.validator.SizeRangeValidator">
+<param property="maximum" value="6" />
+<param property="minimum" value="3" />
+<param property="charset" value="UTF-8" />
+</validator>
+</validators>
+</element>
+
+<element id="date_check" required="true" pattern="false">
+<name>日付検査サンプル</name>
+<description>日付検査サンプル欄です</description>
+<validators>
+<validator class="jp.ats.webkit.dexter.validator.DateValidator">
+<param property="format" value="yyyy/MM/dd" />
+</validator>
+</validators>
+</element>
+
+<element id="num_check" pattern="false">
+<name>数字検査サンプル</name>
+<description>数字検査サンプル欄です</description>
+<custom-required-validator class="jp.ats.webkit.dexter.validator.SimpleRequiredValidator">
+<param property="enable" value="true" />
+</custom-required-validator>
+<validators>
+<validator class="jp.ats.webkit.dexter.validator.RegexValidator">
+<param property="regex" value="\d+" />
+<param property="name" value="数字検査" />
+<param property="description" value="数字であるかを検査します" />
+<param property="validationMessage" value="数字ではありません" />
+</validator>
+<validator class="jp.ats.webkit.dexter.validator.LengthValidator">
+<param property="length" value="4" />
+</validator>
+</validators>
+</element>
+</dexter-form-config>
